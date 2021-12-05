@@ -4,8 +4,8 @@ import PackageDescription
 
 let package = Package(
     name: "CNZone",
-    platforms: [.macOS(.v10_11),
-                .iOS(.v12)
+    platforms: [
+                .iOS(.v10)
                ],
     products: [
         .library(name: "CNZone",
