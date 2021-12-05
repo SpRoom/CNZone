@@ -19,7 +19,7 @@ let package = Package(
         .target(name: "CNZone",
                       dependencies: [
                         .product(name: "SnapKit", package: "SnapKit"),
-                        .product(name: "CombineMoya", package: "Moya")
+                        .product(name: "RxMoya", package: "Moya")
                       ],
                       path: "Sources"),
               
