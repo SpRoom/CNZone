@@ -7,14 +7,14 @@
 
 import UIKit
 
-class BaseNavigationController: UINavigationController {
-    override func viewDidLoad() {
+public class BaseNavigationController: UINavigationController {
+    public override func viewDidLoad() {
         super.viewDidLoad()
     }
 }
 
 extension BaseNavigationController {
-    override func pushViewController(_ viewController: UIViewController, animated: Bool) {
+    public override func pushViewController(_ viewController: UIViewController, animated: Bool) {
         if !children.isEmpty {
             viewController.hidesBottomBarWhenPushed = true
         }
@@ -22,8 +22,8 @@ extension BaseNavigationController {
     }
 }
 
-class NavigationController: BaseNavigationController {
-    override var preferredStatusBarStyle: UIStatusBarStyle {
+public class NavigationController: BaseNavigationController {
+    public override var preferredStatusBarStyle: UIStatusBarStyle {
         if #available(iOS 13.0, *) {
             return .darkContent
         } else {

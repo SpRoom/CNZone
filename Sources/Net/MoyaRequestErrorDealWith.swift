@@ -7,8 +7,8 @@
 //
 
 import Foundation
-struct MoyaRequestErrorDealWith {
-    static func errorHUD(_ error: APIError) {
+public struct MoyaRequestErrorDealWith {
+    public static func errorHUD(_ error: APIError) {
         switch error {
         case let .fail(code: code, msg: msg):
             if !specialError(code: code, msg: msg) {

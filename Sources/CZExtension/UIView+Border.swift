@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-extension CZExtension where Base: UIView {
+public extension CZExtension where Base: UIView {
     var borderColor: UIColor? {
         get {
             guard let color = base.layer.borderColor else { return nil }

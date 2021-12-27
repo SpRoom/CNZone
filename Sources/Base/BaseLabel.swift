@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-class BaseLabel: UILabel {
+open class BaseLabel: UILabel {
     override init(frame: CGRect) {
         super.init(frame: frame)
 
@@ -17,7 +17,7 @@ class BaseLabel: UILabel {
     }
 
     @available(*, unavailable)
-    required init?(coder: NSCoder) {
+    required public init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 }

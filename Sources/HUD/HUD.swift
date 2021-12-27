@@ -7,10 +7,10 @@
 
 import UIKit
 
-class HUD: NSObject {
+public class HUD: NSObject {
     static var shared = HUD(hud: MBHUDTool())
 
-    static func setup(hud: ProgressHUD) {
+    public static func setup(hud: ProgressHUD) {
         shared = HUD(hud: hud)
     }
 
@@ -21,11 +21,11 @@ class HUD: NSObject {
         super.init()
     }
 
-    static func show(_ message: String? = nil, subMessage: String? = nil, type: HUDType, onView: UIView? = nil, time: TimeInterval = 1, callBack: (() -> Void)? = nil) {
+    public static func show(_ message: String? = nil, subMessage: String? = nil, type: HUDType, onView: UIView? = nil, time: TimeInterval = 1, callBack: (() -> Void)? = nil) {
         shared.show(message, subMessage: subMessage, type: type, onView: onView, time: time, callBack: callBack)
     }
 
-    static func hide() {
+    public static func hide() {
         shared.tool.dismiss()
     }
 }

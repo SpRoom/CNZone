@@ -11,7 +11,7 @@ import RxSwift
 import UIKit
 
 extension CZExtension where Base: UIButton {
-    var tap: Observable<Void> {
+    public var tap: Observable<Void> {
         base
             .rx
             .tap

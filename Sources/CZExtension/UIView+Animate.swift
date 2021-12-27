@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-extension CZExtension where Base: UIView {
+public extension CZExtension where Base: UIView {
     /// SwifterSwift: Fade in view.
     ///
     /// - Parameters:
@@ -41,7 +41,7 @@ extension CZExtension where Base: UIView {
 extension UIView {
     /// Rotate
     ///
-    func rotate(duration: CFTimeInterval, angle: Double = Double.pi * 2, repeat: Float = .greatestFiniteMagnitude) {
+    public func rotate(duration: CFTimeInterval, angle: Double = Double.pi * 2, repeat: Float = .greatestFiniteMagnitude) {
         let rotation = CABasicAnimation(keyPath: "transform.rotation.z")
         rotation.toValue = NSNumber(value: angle)
         rotation.duration = duration

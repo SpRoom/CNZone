@@ -8,7 +8,7 @@
 import UIKit
 
 extension UIButton {
-    var font: UIFont {
+    public var font: UIFont {
         set {
             titleLabel?.font = newValue
         }

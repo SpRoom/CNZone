@@ -8,11 +8,11 @@
 import RxSwift
 import UIKit
 
-class BaseCtrl: UIViewController {
+open class BaseCtrl: UIViewController {
     fileprivate var onceToken = false
 
-    let disposeBag = DisposeBag()
-    override func viewDidLoad() {
+    public let disposeBag = DisposeBag()
+    public override func viewDidLoad() {
         super.viewDidLoad()
 
         setupViews()
@@ -21,7 +21,7 @@ class BaseCtrl: UIViewController {
         loadData()
     }
 
-    override var preferredStatusBarStyle: UIStatusBarStyle {
+    public override var preferredStatusBarStyle: UIStatusBarStyle {
         if #available(iOS 13.0, *) {
             return .darkContent
         } else {
@@ -30,17 +30,14 @@ class BaseCtrl: UIViewController {
         }
     }
 
-    func setupStyle() {}
-    func setupViews() {}
-    func setupBind() {}
-    func loadData() {}
+    
 
-    init() {
+    public init() {
         super.init(nibName: nil, bundle: nil)
     }
 
     @available(*, unavailable)
-    required init?(coder: NSCoder) {
+    required public init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 
@@ -49,18 +46,26 @@ class BaseCtrl: UIViewController {
     }
 }
 
-class BaseViewCtrl: BaseCtrl {
-    let basicScrView = UIScrollView()
-    let contentView = UIView()
 
-    override func viewDidLoad() {
+extension BaseCtrl {
+    @objc open func setupStyle() {}
+    @objc open func setupViews() {}
+    @objc open func setupBind() {}
+    @objc open func loadData() {}
+}
+
+open class BaseViewCtrl: BaseCtrl {
+    public let basicScrView = UIScrollView()
+    public let contentView = UIView()
+
+    open override func viewDidLoad() {
         baseConfig()
         super.viewDidLoad()
     }
 }
 
 extension BaseViewCtrl {
-    func onceLoad(_ block: () -> Void) {
+    public func onceLoad(_ block: () -> Void) {
         if !onceToken {
             onceToken = true
             block()

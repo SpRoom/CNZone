@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-extension CZExtension where Base: UIView {
+public extension CZExtension where Base: UIView {
     func addSubviews(_ subviews: UIView...) {
         subviews.forEach { base.addSubview($0) }
     }
@@ -36,7 +36,7 @@ extension CZExtension where Base: UIView {
     }
 }
 
-extension CZExtension where Base: UIView {
+public extension CZExtension where Base: UIView {
     /// SwifterSwift: Remove all gesture recognizers from view.
     func removeGestureRecognizers() {
         base.gestureRecognizers?.forEach { ges in

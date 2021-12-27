@@ -8,7 +8,7 @@
 import Foundation
 import RxSwift
 
-public class BaseViewModel: NSObject {
+open class BaseViewModel: NSObject {
     public let disposeBag = DisposeBag()
 
     override public init() {
@@ -19,5 +19,5 @@ public class BaseViewModel: NSObject {
 }
 
 extension BaseViewModel {
-    @objc public func loadData() {}
+    @objc open func loadData() {}
 }

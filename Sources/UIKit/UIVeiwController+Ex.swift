@@ -8,7 +8,7 @@
 import UIKit
 
 extension UIViewController {
-    func becomeRootViewController(_ callBack: (() -> Void)? = nil) {
+    public func becomeRootViewController(_ callBack: (() -> Void)? = nil) {
         guard let window = UIApplication.shared.windows.first else {
             return
         }

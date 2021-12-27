@@ -8,7 +8,7 @@
 import RxSwift
 import UIKit
 
-public class BaseView: UIView {
+open class BaseView: UIView {
     public let disposeBag = DisposeBag()
 
     public init() {

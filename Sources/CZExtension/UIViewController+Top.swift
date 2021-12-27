@@ -41,7 +41,7 @@ extension UINavigationController {
     }
 }
 
-extension CZExtension where Base: UIViewController {
+public extension CZExtension where Base: UIViewController {
     var safeInset: UIEdgeInsets {
         UIScreen.cz.safeInset
     }

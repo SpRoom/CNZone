@@ -11,7 +11,7 @@ import RxSwift
 import UIKit
 
 extension CZExtension where Base: UIView {
-    var tap: Observable<Void> {
+    public var tapGes: Observable<Void> {
         base
             .rx
             .tapGesture().when(.recognized).mapToVoid()

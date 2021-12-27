@@ -8,12 +8,15 @@
 import Foundation
 import Moya
 
-struct ParamLogPlugin: PluginType {
-    func prepare(_ request: URLRequest, target: TargetType) -> URLRequest {
+public struct ParamLogPlugin: PluginType {
+    
+    public init() {}
+    
+    public func prepare(_ request: URLRequest, target: TargetType) -> URLRequest {
         request
     }
 
-    func willSend(_ request: RequestType, target: TargetType) {
+    public func willSend(_ request: RequestType, target: TargetType) {
         if let urlRequest = request.request {
             print("--------------------")
             print("moya - paramter - log, time = \(Date())")
@@ -34,7 +37,7 @@ struct ParamLogPlugin: PluginType {
         }
     }
 
-    func didReceive(_ result: Result<Response, MoyaError>, target: TargetType) {
+    public func didReceive(_ result: Result<Response, MoyaError>, target: TargetType) {
         print("--------------------")
         print("moya - paramter - log, time = \(Date())")
         print("----")

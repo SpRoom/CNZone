@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-extension UIView {
+public extension UIView {
     /// SwifterSwift: Size of view.
     var size: CGSize {
         get {
