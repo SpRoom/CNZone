@@ -6,8 +6,17 @@
         "repositoryURL": "https://github.com/Alamofire/Alamofire.git",
         "state": {
           "branch": null,
-          "revision": "d120af1e8638c7da36c8481fd61a66c0c08dc4fc",
-          "version": "5.4.4"
+          "revision": "f82c23a8a7ef8dc1a49a8bfc6a96883e79121864",
+          "version": "5.5.0"
+        }
+      },
+      {
+        "package": "MBProgressHUD",
+        "repositoryURL": "https://github.com/jdg/MBProgressHUD.git",
+        "state": {
+          "branch": "master",
+          "revision": "c843e4c86d320a11552898646effa8000042ab16",
+          "version": null
         }
       },
       {
@@ -20,12 +29,30 @@
         }
       },
       {
+        "package": "Reachability",
+        "repositoryURL": "https://github.com/ashleymills/Reachability.swift.git",
+        "state": {
+          "branch": "master",
+          "revision": "a81b7367f2c46875f29577e03a60c39cdfad0c8d",
+          "version": null
+        }
+      },
+      {
         "package": "ReactiveSwift",
         "repositoryURL": "https://github.com/ReactiveCocoa/ReactiveSwift.git",
         "state": {
           "branch": null,
           "revision": "c43bae3dac73fdd3cb906bd5a1914686ca71ed3c",
           "version": "6.7.0"
+        }
+      },
+      {
+        "package": "RxGesture",
+        "repositoryURL": "https://github.com/RxSwiftCommunity/RxGesture.git",
+        "state": {
+          "branch": null,
+          "revision": "53ebed7fe3f15021bf518d9d1e8b147e2ddffa0a",
+          "version": "4.0.3"
         }
       },
       {

@@ -10,8 +10,14 @@ import UIKit
 
 extension CZExtension where Base: UIScreen {
     static var safeInset: UIEdgeInsets {
-        let insets = UIApplication.shared.delegate?.window??.safeAreaInsets ?? .zero
-        return insets
+        if #available(iOS 11.0, *) {
+            let insets = UIApplication.shared.delegate?.window??.safeAreaInsets ?? .zero
+            return insets
+        } else {
+            // Fallback on earlier versions
+            return .zero
+        }
+        
     }
 
     /// safe area width

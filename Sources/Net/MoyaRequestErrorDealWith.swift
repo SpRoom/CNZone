@@ -7,8 +7,6 @@
 //
 
 import Foundation
-import PKHUD
-
 struct MoyaRequestErrorDealWith {
     static func errorHUD(_ error: APIError) {
         switch error {
@@ -17,6 +15,7 @@ struct MoyaRequestErrorDealWith {
                 DispatchQueue.global(qos: .default).async {
                     DispatchQueue.main.async {
 //                        SZHUD(msg, type: .info, time: 3, callBack: nil)
+                        HUD.show(msg, type: .info)
                     }
                 }
             }
@@ -30,7 +29,7 @@ struct MoyaRequestErrorDealWith {
     /// - Parameter code: 错误码
     static func specialError(code: String, msg: String) -> Bool {
         if code == reloginCode {
-            alertUserRelogin()
+            NetConfig.shared.reloginHandler?()
             return true
         }
 
@@ -38,18 +37,35 @@ struct MoyaRequestErrorDealWith {
     }
 
     static var reloginCode: String {
-        "1002" // Configs.Code.unlogin
+        NetConfig.shared.reloginCode
     }
 
     static var reloginAlert = true
 }
 
-extension MoyaRequestErrorDealWith {
-    static func alertUserRelogin() {
-        guard !reloginAlert else {
-            return
-        }
-        let vc = LoginCtrl()
-        vc.becomeRootViewController(nil)
+class NetConfig {
+    
+    public static let shared = NetConfig()
+    
+    var reloginHandler: (() -> Void)?
+    
+    var reloginCode: String = "1002"
+    
+    public func config(reloginCode: String) {
+        self.reloginCode = reloginCode
+    }
+    
+    public func setRelogin(handler: @escaping (() -> Void)) {
+        reloginHandler = handler
     }
 }
+
+//extension MoyaRequestErrorDealWith {
+//    static func alertUserRelogin() {
+//        guard !reloginAlert else {
+//            return
+//        }
+//        let vc = LoginCtrl()
+//        vc.becomeRootViewController(nil)
+//    }
+//}
