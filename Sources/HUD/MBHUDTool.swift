@@ -23,6 +23,7 @@ extension MBHUDTool: ProgressHUD {
         let view: UIView = view ?? UIApplication.shared.keyWindow!
         let h = MBProgressHUD.showAdded(to: view, animated: true)
         h.mode = .customView
+        h.bezelView.style = .solidColor
         h.bezelView.backgroundColor = UIColor.init(hexadecimal: 0xFFFFFF, alpha: 0.6)
         let image = UIImage(named: "infomation")!
         image.withRenderingMode(.alwaysTemplate)
@@ -46,6 +47,7 @@ extension MBHUDTool: ProgressHUD {
         let view: UIView = view ?? UIApplication.shared.keyWindow!
         let h = MBProgressHUD.showAdded(to: view, animated: true)
         h.mode = .indeterminate
+        h.bezelView.style = .solidColor
         h.bezelView.backgroundColor = UIColor.init(hexadecimal: 0xFFFFFF, alpha: 0.6)
         h.label.text = title
         h.detailsLabel.text = subTitle
@@ -61,6 +63,7 @@ extension MBHUDTool: ProgressHUD {
         let view: UIView = view ?? UIApplication.shared.keyWindow!
         let h = MBProgressHUD.showAdded(to: view, animated: true)
         h.mode = .customView
+        h.bezelView.style = .solidColor
         h.bezelView.backgroundColor = UIColor.init(hexadecimal: 0xFFFFFF, alpha: 0.6)
         let image = UIImage(named: "Checkmark")!
         image.withRenderingMode(.alwaysTemplate)
@@ -79,6 +82,7 @@ extension MBHUDTool: ProgressHUD {
         let view: UIView = view ?? UIApplication.shared.keyWindow!
         let h = MBProgressHUD.showAdded(to: view, animated: true)
         h.mode = .customView
+        h.bezelView.style = .solidColor
         h.bezelView.backgroundColor = UIColor.init(hexadecimal: 0xFFFFFF, alpha: 0.6)
         let image = UIImage(named: "infomation")!
         image.withRenderingMode(.alwaysTemplate)
