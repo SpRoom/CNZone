@@ -22,7 +22,7 @@ extension MBHUDTool: ProgressHUD {
         hud = nil
         let view: UIView = view ?? UIApplication.shared.keyWindow!
         let h = MBProgressHUD.showAdded(to: view, animated: true)
-        h.mode = .annularDeterminate
+        h.mode = .customView
         let image = UIImage(named: "infomation")!
         image.withRenderingMode(.alwaysTemplate)
         h.customView = UIImageView(image: image)
@@ -58,7 +58,7 @@ extension MBHUDTool: ProgressHUD {
         hud = nil
         let view: UIView = view ?? UIApplication.shared.keyWindow!
         let h = MBProgressHUD.showAdded(to: view, animated: true)
-        h.mode = .annularDeterminate
+        h.mode = .customView
         let image = UIImage(named: "Checkmark")!
         image.withRenderingMode(.alwaysTemplate)
         h.customView = UIImageView(image: image)
@@ -75,7 +75,7 @@ extension MBHUDTool: ProgressHUD {
         hud = nil
         let view: UIView = view ?? UIApplication.shared.keyWindow!
         let h = MBProgressHUD.showAdded(to: view, animated: true)
-        h.mode = .annularDeterminate
+        h.mode = .customView
         let image = UIImage(named: "infomation")!
         image.withRenderingMode(.alwaysTemplate)
         h.customView = UIImageView(image: image)
