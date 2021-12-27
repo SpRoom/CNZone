@@ -95,8 +95,9 @@ extension MBProgressHUD {
     func update(blurEffect style: UIBlurEffect.Style) {
         bezelView.blurEffectStyle = HUD.blurEffectStyle
         if HUD.blurEffectStyle == .light {
-            label.textColor = UIColor(hexadecimal: 0x222222)
-            detailsLabel.textColor = UIColor(hexadecimal: 0x222222)
+//            label.textColor = UIColor(hexadecimal: 0x222222)
+//            detailsLabel.textColor = UIColor(hexadecimal: 0x222222)
+            contentColor = UIColor(hexadecimal: 0x222222)
         }
     }
     
