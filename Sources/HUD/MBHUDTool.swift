@@ -82,8 +82,9 @@ extension MBHUDTool: ProgressHUD {
         let view: UIView = view ?? UIApplication.shared.keyWindow!
         let h = MBProgressHUD.showAdded(to: view, animated: true)
         h.mode = .customView
-        h.bezelView.style = .solidColor
-        h.bezelView.backgroundColor = HUD.backgroundColor
+//        h.bezelView.style = .solidColor
+//        h.bezelView.backgroundColor = HUD.backgroundColor
+        h.bezelView.blurEffectStyle = .light
         let image = UIImage(named: "infomation")!
         image.withRenderingMode(.alwaysTemplate)
         h.customView = UIImageView(image: image)
