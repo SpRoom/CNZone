@@ -16,6 +16,8 @@ public class HUD: NSObject {
     
     static var backgroundColor: UIColor = UIColor(red: 77, green: 77, blue: 77, alpha: 1)
 
+    static var blurEffectStyle: UIBlurEffect.Style = .dark
+    
     private var tool: ProgressHUD
 
     private init(hud: ProgressHUD) {
@@ -23,8 +25,12 @@ public class HUD: NSObject {
         super.init()
     }
     
-    public static func config(backgroundColor: UIColor) {
+    static func config(backgroundColor: UIColor) {
         HUD.backgroundColor = backgroundColor
+    }
+    
+    public static func config(blurEffect style: UIBlurEffect.Style) {
+        blurEffectStyle = style
     }
 
     public static func show(_ message: String? = nil, subMessage: String? = nil, type: HUDType, onView: UIView? = nil, time: TimeInterval = 1, callBack: (() -> Void)? = nil) {

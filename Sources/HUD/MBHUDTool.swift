@@ -11,7 +11,7 @@ import Foundation
 import MBProgressHUD
 class MBHUDTool {
     var hud: MBProgressHUD?
-//    var viewToPresentOn: UIView?
+    //    var viewToPresentOn: UIView?
 }
 
 extension MBHUDTool: ProgressHUD {
@@ -23,22 +23,21 @@ extension MBHUDTool: ProgressHUD {
         let view: UIView = view ?? UIApplication.shared.keyWindow!
         let h = MBProgressHUD.showAdded(to: view, animated: true)
         h.mode = .customView
-        h.bezelView.style = .solidColor
-        h.bezelView.backgroundColor = HUD.backgroundColor
+        h.update(blurEffect: HUD.blurEffectStyle)
         let image = UIImage(named: "infomation")!
         image.withRenderingMode(.alwaysTemplate)
         h.customView = UIImageView(image: image)
         h.label.text = title
         h.detailsLabel.text = subTitle
-
+        
         hud = h
     }
-
+    
     public func dismiss() {
         guard let hud = hud else { return }
         hud.hide(animated: true)
     }
-
+    
     func showLoading(onView view: UIView? = nil, title: String? = nil, subTitle: String? = nil) {
         if let hud = hud {
             hud.hide(animated: true)
@@ -47,14 +46,13 @@ extension MBHUDTool: ProgressHUD {
         let view: UIView = view ?? UIApplication.shared.keyWindow!
         let h = MBProgressHUD.showAdded(to: view, animated: true)
         h.mode = .indeterminate
-        h.bezelView.style = .solidColor
-        h.bezelView.backgroundColor = HUD.backgroundColor
+        h.update(blurEffect: HUD.blurEffectStyle)
         h.label.text = title
         h.detailsLabel.text = subTitle
-
+        
         hud = h
     }
-
+    
     func showSuccess(onView view: UIView? = nil, title: String? = nil, subTitle: String? = nil) {
         if let hud = hud {
             hud.hide(animated: true)
@@ -63,17 +61,16 @@ extension MBHUDTool: ProgressHUD {
         let view: UIView = view ?? UIApplication.shared.keyWindow!
         let h = MBProgressHUD.showAdded(to: view, animated: true)
         h.mode = .customView
-        h.bezelView.style = .solidColor
-        h.bezelView.backgroundColor = HUD.backgroundColor
+        h.update(blurEffect: HUD.blurEffectStyle)
         let image = UIImage(named: "Checkmark")!
         image.withRenderingMode(.alwaysTemplate)
         h.customView = UIImageView(image: image)
         h.label.text = title
         h.detailsLabel.text = subTitle
-
+        
         hud = h
     }
-
+    
     func showInfo(onView view: UIView? = nil, title: String? = nil, subTitle: String? = nil) {
         if let hud = hud {
             hud.hide(animated: true)
@@ -82,16 +79,30 @@ extension MBHUDTool: ProgressHUD {
         let view: UIView = view ?? UIApplication.shared.keyWindow!
         let h = MBProgressHUD.showAdded(to: view, animated: true)
         h.mode = .customView
-//        h.bezelView.style = .solidColor
-//        h.bezelView.backgroundColor = HUD.backgroundColor
-        h.bezelView.blurEffectStyle = .light
+        h.update(blurEffect: HUD.blurEffectStyle)
         let image = UIImage(named: "infomation")!
         image.withRenderingMode(.alwaysTemplate)
         h.customView = UIImageView(image: image)
         h.label.text = title
         h.detailsLabel.text = subTitle
-
+        
         hud = h
+    }
+}
+
+extension MBProgressHUD {
+    
+    func update(blurEffect style: UIBlurEffect.Style) {
+        bezelView.blurEffectStyle = HUD.blurEffectStyle
+        if HUD.blurEffectStyle == .light {
+            label.textColor = UIColor(hexadecimal: 0x222222)
+            detailsLabel.textColor = UIColor(hexadecimal: 0x222222)
+        }
+    }
+    
+    func update(backgroundColor: UIColor) {
+        bezelView.style = .solidColor
+        bezelView.backgroundColor = HUD.backgroundColor
     }
 }
 #endif
