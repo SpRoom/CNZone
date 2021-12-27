@@ -13,12 +13,18 @@ public class HUD: NSObject {
     public static func setup(hud: ProgressHUD) {
         shared = HUD(hud: hud)
     }
+    
+    static var backgroundColor: UIColor = UIColor(red: 77, green: 77, blue: 77, alpha: 1)
 
     private var tool: ProgressHUD
 
     private init(hud: ProgressHUD) {
         tool = hud
         super.init()
+    }
+    
+    public static func config(backgroundColor: UIColor) {
+        HUD.backgroundColor = backgroundColor
     }
 
     public static func show(_ message: String? = nil, subMessage: String? = nil, type: HUDType, onView: UIView? = nil, time: TimeInterval = 1, callBack: (() -> Void)? = nil) {
