@@ -23,6 +23,7 @@ extension MBHUDTool: ProgressHUD {
         let view: UIView = view ?? UIApplication.shared.keyWindow!
         let h = MBProgressHUD.showAdded(to: view, animated: true)
         h.mode = .customView
+        h.backgroundColor = UIColor.init(hexadecimal: 0xFFFFFF, alpha: 0.6)
         let image = UIImage(named: "infomation")!
         image.withRenderingMode(.alwaysTemplate)
         h.customView = UIImageView(image: image)
@@ -45,6 +46,7 @@ extension MBHUDTool: ProgressHUD {
         let view: UIView = view ?? UIApplication.shared.keyWindow!
         let h = MBProgressHUD.showAdded(to: view, animated: true)
         h.mode = .indeterminate
+        h.backgroundColor = UIColor.init(hexadecimal: 0xFFFFFF, alpha: 0.6)
         h.label.text = title
         h.detailsLabel.text = subTitle
 
@@ -61,6 +63,7 @@ extension MBHUDTool: ProgressHUD {
         h.mode = .customView
         let image = UIImage(named: "Checkmark")!
         image.withRenderingMode(.alwaysTemplate)
+        h.backgroundColor = UIColor.init(hexadecimal: 0xFFFFFF, alpha: 0.6)
         h.customView = UIImageView(image: image)
         h.label.text = title
         h.detailsLabel.text = subTitle
@@ -76,6 +79,7 @@ extension MBHUDTool: ProgressHUD {
         let view: UIView = view ?? UIApplication.shared.keyWindow!
         let h = MBProgressHUD.showAdded(to: view, animated: true)
         h.mode = .customView
+        h.backgroundColor = UIColor.init(hexadecimal: 0xFFFFFF, alpha: 0.6)
         let image = UIImage(named: "infomation")!
         image.withRenderingMode(.alwaysTemplate)
         h.customView = UIImageView(image: image)
