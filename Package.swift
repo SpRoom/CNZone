@@ -17,7 +17,8 @@ let package = Package(
         .package(url: "https://github.com/RxSwiftCommunity/RxGesture.git", .upToNextMajor(from: "4.0.0")),
         .package(url: "https://github.com/ReactiveX/RxSwift.git", .exact("6.2.0")),
         .package(url: "https://github.com/ashleymills/Reachability.swift.git", .branch("master")),
-        .package(url: "https://github.com/jdg/MBProgressHUD.git", .branch("master"))
+        .package(url: "https://github.com/jdg/MBProgressHUD.git", .branch("master")),
+        .package(url: "https://github.com/malcommac/SwiftDate.git", .upToNextMajor(from: "6.3.1"))
         //        https://github.com/ReactiveX/RxSwift.git
     ],
     targets: [
@@ -29,6 +30,7 @@ let package = Package(
                     .product(name: "Reachability", package: "Reachability.swift", condition: .when(platforms: [.iOS])),
                     .product(name: "SnapKit", package: "SnapKit", condition: .when(platforms: [.iOS])),
                     .product(name: "RxMoya", package: "Moya", condition: .when(platforms: [.iOS])),
+                    .product(name: "SwiftDate", package: "SwiftDate", condition: .when(platforms: [.iOS])),
                     .product(name: "MBProgressHUD", package: "MBProgressHUD", condition: .when(platforms: [.iOS]))
                 ],
                 path: "Sources",
