@@ -4,7 +4,7 @@
 //
 //  Created by Spec on 2021/1/7.
 //
-
+#if canImport(CryptoKit)
 import CryptoKit
 import Foundation
 
@@ -20,3 +20,4 @@ public enum SPCrypto {
         }
     }
 }
+#endif
