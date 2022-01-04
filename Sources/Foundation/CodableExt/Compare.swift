@@ -4,7 +4,7 @@
 //
 //  Created by apple on 2021/3/3.
 //
-
+#if canImport(CryptoKit)
 import Foundation
 
 extension Encodable {
@@ -25,3 +25,4 @@ extension Encodable {
         return SPCrypto.encodeWithMD5(content: cstr) == SPCrypto.encodeWithMD5(content: ostr)
     }
 }
+#endif
