@@ -61,7 +61,7 @@ extension CZExtension where Base: UIView {
         }
     }
 }
-
+/*
 extension CZExtension where Base: UIView {
     /// circle view
     public func corner(with: CGFloat, coners: UIRectCorner, file: String = #file, function: String = #function, line: Int = #line) {
@@ -120,7 +120,7 @@ extension CZExtension where Base: UIView {
         base.layer.addSublayer(shapeLayer)
     }
 }
-
+*/
 extension CZExtension where Base: UIView {
     public func addShadow(color: UIColor, offset: CGSize, opacity: Float, radius: CGFloat) {
         base.layer.shadowColor = color.cgColor
