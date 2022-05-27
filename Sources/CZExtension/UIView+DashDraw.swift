@@ -18,7 +18,7 @@ public extension CZExtension where Base: UIView {
     ///   - lineColor: 颜色
     ///   - isHorizontal: 是否水平
     public func drawDashLine(lineLength: Int, lineSpacing: Int, lineColor: UIColor, isHorizontal: Bool = true) {
-        if let sublayers = layer.sublayers {
+        if let sublayers = base.layer.sublayers {
             for sublayer in sublayers {
                 sublayer.removeFromSuperlayer()
             }
@@ -26,7 +26,7 @@ public extension CZExtension where Base: UIView {
         //        self.layer.sublayers = nil
 
         let shapeLayer = CAShapeLayer()
-        shapeLayer.bounds = bounds
+        shapeLayer.bounds = base.bounds
         //        只要是CALayer这种类型,他的anchorPoint默认都是(0.5,0.5)
         shapeLayer.anchorPoint = CGPoint(x: 0, y: 0)
         //        shapeLayer.fillColor = UIColor.blue.cgColor
@@ -40,34 +40,34 @@ public extension CZExtension where Base: UIView {
         let path = CGMutablePath()
         path.move(to: CGPoint(x: 0, y: 0))
         if isHorizontal {
-            path.addLine(to: CGPoint(x: frame.size.width, y: 0))
+            path.addLine(to: CGPoint(x: base.frame.size.width, y: 0))
         } else {
-            path.addLine(to: CGPoint(x: 0, y: frame.size.height))
+            path.addLine(to: CGPoint(x: 0, y: base.frame.size.height))
         }
         shapeLayer.path = path
         layer.addSublayer(shapeLayer)
     }
 
     public func drawDashBorder(length _: CGFloat, width: CGFloat, spacing _: CGFloat, color _: UIColor) {
-        guard frame != .zero else { return }
+        guard base.frame != .zero else { return }
 
         let topLine = CAShapeLayer()
         let leftLine = CAShapeLayer()
         let rightLine = CAShapeLayer()
         let bottomLine = CAShapeLayer()
 
-        topLine.bounds = CGRect(x: 0, y: 0, width: frame.width, height: width)
-        leftLine.bounds = CGRect(x: 0, y: 0, width: width, height: frame.height)
-        rightLine.bounds = CGRect(x: 0, y: 0, width: width, height: frame.height)
-        bottomLine.bounds = CGRect(x: 0, y: 0, width: frame.width, height: width)
+        topLine.bounds = CGRect(x: 0, y: 0, width: base.frame.width, height: width)
+        leftLine.bounds = CGRect(x: 0, y: 0, width: width, height: base.frame.height)
+        rightLine.bounds = CGRect(x: 0, y: 0, width: width, height: base.frame.height)
+        bottomLine.bounds = CGRect(x: 0, y: 0, width: base.frame.width, height: width)
     }
 
     public func drawBoardBottedLine(width: CGFloat, length: CGFloat, space: CGFloat, radius: CGFloat, color: UIColor) {
-        layer.cornerRadius = radius
+        base.layer.cornerRadius = radius
         let borderLayer = CAShapeLayer()
-        borderLayer.bounds = bounds
+        borderLayer.bounds = base.bounds
 
-        borderLayer.position = CGPoint(x: bounds.midX, y: bounds.midY)
+        borderLayer.position = CGPoint(x: base.bounds.midX, y: base.bounds.midY)
         borderLayer.path = UIBezierPath(roundedRect: borderLayer.bounds, cornerRadius: radius).cgPath
         borderLayer.lineWidth = width / UIScreen.main.scale
 
@@ -77,6 +77,6 @@ public extension CZExtension where Base: UIView {
         borderLayer.fillColor = UIColor.clear.cgColor
         borderLayer.strokeColor = color.cgColor
 
-        layer.addSublayer(borderLayer)
+        base.layer.addSublayer(borderLayer)
     }
 }
