@@ -45,7 +45,7 @@ public extension CZExtension where Base: UIView {
             path.addLine(to: CGPoint(x: 0, y: base.frame.size.height))
         }
         shapeLayer.path = path
-        layer.addSublayer(shapeLayer)
+        base.layer.addSublayer(shapeLayer)
     }
 
     public func drawDashBorder(length _: CGFloat, width: CGFloat, spacing _: CGFloat, color _: UIColor) {
