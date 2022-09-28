@@ -45,7 +45,6 @@ public struct UserDefault<T: Codable> {
             } else {
                 //Do the JSONSerialization Thing
                 if let data = try? JSONEncoder().encode(newValue) {
-//                    let data = try? JSONSerialization.data(withJSONObject: newValue, options: [])
                     UserDefaults.standard.set(data, forKey: key)
                 } else {
                     let dic = [key: newValue]
