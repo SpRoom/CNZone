@@ -23,12 +23,27 @@ public struct UserDefault<T: Codable> {
     public var wrappedValue: T {
         get {
             guard let data = UserDefaults.standard.data(forKey: key) else { return defaultValue }
-            let model = try? JSONDecoder().decode(T.self, from: data)
-            return model ?? defaultValue
+            if #available(iOS 13.0, *) {
+                let model = try? JSONDecoder().decode(T.self, from: data)
+                return model ?? defaultValue
+            } else {
+                if let model = try? JSONSerialization.jsonObject(with: data) as? T {
+                    return model
+                }
+            }
+            return defaultValue
         }
         set {
-            let data = try? JSONEncoder().encode(newValue)
-            UserDefaults.standard.set(data, forKey: key)
+            if #available(iOS 13.0, *) {
+                //Do the JSONEncoder thing
+                let data = try? JSONEncoder().encode(newValue)
+                UserDefaults.standard.set(data, forKey: key)
+            } else {
+                //Do the JSONSerialization Thing
+                let data = try? JSONSerialization.data(withJSONObject: newValue, options: [])
+                UserDefaults.standard.set(data, forKey: key)
+            }
+            
         }
     }
 }
