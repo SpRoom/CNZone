@@ -27,7 +27,9 @@ public struct UserDefault<T: Codable> {
                 let model = try? JSONDecoder().decode(T.self, from: data)
                 return model ?? defaultValue
             } else {
-                if let dic = try? JSONSerialization.jsonObject(with: data) as? [String: Any] {
+                if let model = try? JSONSerialization.jsonObject(with: data) as? T {
+                    return model
+                } else if let dic = try? JSONSerialization.jsonObject(with: data) as? [String: Any] {
                     if let model = dic[key] as? T {
                         return model
                     }
@@ -42,9 +44,14 @@ public struct UserDefault<T: Codable> {
                 UserDefaults.standard.set(data, forKey: key)
             } else {
                 //Do the JSONSerialization Thing
-                let dic = [key: newValue]
-                let data = try? JSONSerialization.data(withJSONObject: dic, options: [])
-                UserDefaults.standard.set(data, forKey: key)
+                if JSONSerialization.isValidJSONObject(newValue) {
+                    let data = try? JSONSerialization.data(withJSONObject: newValue, options: [])
+                    UserDefaults.standard.set(data, forKey: key)
+                } else {
+                    let dic = [key: newValue]
+                    let data = try? JSONSerialization.data(withJSONObject: dic, options: [])
+                    UserDefaults.standard.set(data, forKey: key)
+                }
             }
             
         }
