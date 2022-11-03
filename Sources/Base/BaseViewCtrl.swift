@@ -21,7 +21,7 @@ open class BaseCtrl: UIViewController {
         loadData()
     }
 
-    public override var preferredStatusBarStyle: UIStatusBarStyle {
+    open override var preferredStatusBarStyle: UIStatusBarStyle {
         if #available(iOS 13.0, *) {
             return .darkContent
         } else {
@@ -45,6 +45,7 @@ open class BaseCtrl: UIViewController {
         SNLog("\(self) is deinit")
     }
 }
+
 
 
 extension BaseCtrl {

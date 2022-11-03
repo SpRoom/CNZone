@@ -17,7 +17,7 @@ public extension CZExtension where Base: UIView {
     ///   - lineSpacing: 间距
     ///   - lineColor: 颜色
     ///   - isHorizontal: 是否水平
-    public func drawDashLine(lineLength: Int, lineSpacing: Int, lineColor: UIColor, isHorizontal: Bool = true) {
+    func drawDashLine(lineLength: Int, lineSpacing: Int, lineColor: UIColor, isHorizontal: Bool = true) {
         if let sublayers = base.layer.sublayers {
             for sublayer in sublayers {
                 sublayer.removeFromSuperlayer()
@@ -48,7 +48,7 @@ public extension CZExtension where Base: UIView {
         base.layer.addSublayer(shapeLayer)
     }
 
-    public func drawDashBorder(length _: CGFloat, width: CGFloat, spacing _: CGFloat, color _: UIColor) {
+    func drawDashBorder(length _: CGFloat, width: CGFloat, spacing _: CGFloat, color _: UIColor) {
         guard base.frame != .zero else { return }
 
         let topLine = CAShapeLayer()
@@ -62,7 +62,7 @@ public extension CZExtension where Base: UIView {
         bottomLine.bounds = CGRect(x: 0, y: 0, width: base.frame.width, height: width)
     }
 
-    public func drawBoardBottedLine(width: CGFloat, length: CGFloat, space: CGFloat, radius: CGFloat, color: UIColor) {
+    func drawBoardBottedLine(width: CGFloat, length: CGFloat, space: CGFloat, radius: CGFloat, color: UIColor) {
         base.layer.cornerRadius = radius
         let borderLayer = CAShapeLayer()
         borderLayer.bounds = base.bounds

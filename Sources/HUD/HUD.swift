@@ -62,7 +62,7 @@ extension HUD {
 
             if type != .loading {
                 _ = delay(time, task: {
-                    tool.dismiss()
+                    self.tool.dismiss()
                     callBack?()
                 })
             }
