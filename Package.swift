@@ -18,7 +18,7 @@ let package = Package(
         .package(url: "https://github.com/ReactiveX/RxSwift.git", .exact("6.2.0")),
         .package(url: "https://github.com/ashleymills/Reachability.swift.git", .branch("master")),
         .package(url: "https://github.com/jdg/MBProgressHUD.git", .branch("master")),
-        .package(url: "https://github.com/malcommac/SwiftDate.git", .upToNextMajor(from: "6.3.1"))
+        .package(url: "https://github.com/malcommac/SwiftDate.git", .upToNextMajor(from: "7.0.0"))
         //        https://github.com/ReactiveX/RxSwift.git
     ],
     targets: [
