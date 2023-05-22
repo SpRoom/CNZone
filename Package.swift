@@ -15,7 +15,7 @@ let package = Package(
         .package(url: "https://github.com/SnapKit/SnapKit.git", .upToNextMajor(from: "5.0.1")),
         .package(url: "https://github.com/Moya/Moya.git", .upToNextMajor(from: "15.0.0")),
         .package(url: "https://github.com/RxSwiftCommunity/RxGesture.git", .upToNextMajor(from: "4.0.0")),
-        .package(url: "https://github.com/ReactiveX/RxSwift.git", .exact("6.2.0")),
+        .package(url: "https://github.com/ReactiveX/RxSwift.git", .upToNextMajor("6.2.0")),
         .package(url: "https://github.com/ashleymills/Reachability.swift.git", .branch("master")),
         .package(url: "https://github.com/jdg/MBProgressHUD.git", .branch("master")),
         .package(url: "https://github.com/malcommac/SwiftDate.git", .upToNextMajor(from: "7.0.0"))
