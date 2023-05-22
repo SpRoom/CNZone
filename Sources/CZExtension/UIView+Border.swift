@@ -34,13 +34,5 @@ public extension CZExtension where Base: UIView {
         }
     }
 
-    var cornerRadius: CGFloat {
-        get {
-            base.layer.cornerRadius
-        }
-        set {
-            base.layer.masksToBounds = true
-            base.layer.cornerRadius = abs(CGFloat(Int(newValue * 100)) / 100)
-        }
-    }
+    
 }
