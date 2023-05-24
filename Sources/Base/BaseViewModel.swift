@@ -9,7 +9,6 @@ import Foundation
 import RxSwift
 
 open class BaseViewModel: NSObject {
-    public let disposeBag = DisposeBag()
 
     override public init() {
         super.init()
