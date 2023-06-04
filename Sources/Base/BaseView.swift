@@ -19,9 +19,11 @@ open class BaseView: UIView {
         setupBind()
     }
 
-    @available(*, unavailable)
-    public required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+    public required init?(coder: NSCoder) {
+        super.init(coder: coder)
+        setupViews()
+        setupStyle()
+        setupBind()
     }
 }
 
