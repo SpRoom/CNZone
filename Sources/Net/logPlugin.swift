@@ -19,8 +19,9 @@ public struct ParamLogPlugin: PluginType {
     public func willSend(_ request: RequestType, target: TargetType) {
         if let urlRequest = request.request {
             print("--------------------")
-            print("moya - paramter - log, time = \(Date())")
+            print("moya - request - log, time = \(Date())")
             print("----")
+            request.sessionHeaders
             pluginPrint("request url - \(urlRequest.url?.absoluteString ?? "unkown request address")")
             pluginPrint("request method - \(urlRequest.method?.rawValue ?? "unkown")")
             let headers = urlRequest.headers.dictionary
@@ -39,12 +40,13 @@ public struct ParamLogPlugin: PluginType {
 
     public func didReceive(_ result: Result<Response, MoyaError>, target: TargetType) {
         print("--------------------")
-        print("moya - paramter - log, time = \(Date())")
+        print("moya - response - log, time = \(Date())")
         print("----")
         pluginPrint("response url - \(target.baseURL.absoluteString)")
         pluginPrint("response path - \(target.path)")
         switch result {
         case let .success(response):
+            pluginPrint("status code: \(response.statusCode)")
             pluginPrint(String(data: response.data, encoding: .utf8) ?? "response body convert to string failed")
         case let .failure(moyaError):
             pluginPrint("response error - \(moyaError.errorDescription ?? "unkown")")
